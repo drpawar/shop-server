@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoClient = require('./databaseServer/mongoConn');
+const mongoClient = require('./db/mongoClient');
 const product = require('./router/product');
-const users = require('./router/users');
+const users = require('./router/auth');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,8 +15,8 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('', users);
-app.use('', product);
+app.use('/api', users);
+app.use('/api', product);
 
 
 mongoClient.connect().then(res=> {
