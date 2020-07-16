@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoClient = require('./db/mongoClient');
+const mongoClient = require('./db/database');
 const product = require('./router/product');
 const users = require('./router/auth');
 

@@ -1,4 +1,4 @@
-const mongoClient = require('../db/mongoClient');
+const mongoClient = require('../db/database');
 
 exports.getProduct = (req, res, next) => {
     mongoClient.db("shopDb").collection("shop").find().toArray().then(db => {

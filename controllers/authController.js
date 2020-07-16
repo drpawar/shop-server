@@ -1,10 +1,10 @@
 
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const mongoClient = require('../db/mongoClient');
+const mongoClient = require('../db/database');
 
 const createToken = (userId, email) => {
-    return jwt.sign({ userId, userId, email: email }, 'shop-server-project', { expiresIn: '1h' });
+    return jwt.sign({ userId: userId, email: email }, 'shop-server-project', { expiresIn: '1h' });
 };
 
 exports.login = (req, res) => {
